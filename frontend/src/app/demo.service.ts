@@ -23,12 +23,12 @@ export class DemoService {
 
   create(dto: DemoDTO): Observable<DemoDTO> {
     // TODO implement
-    return this.http.post<DemoDTO>(this.baseUrl + "/list/create", dto);
+    return this.http.post<DemoDTO>(this.baseUrl + `/list/create`, dto);
   }
 
   update(id: number, dto: DemoDTO): Observable<DemoDTO> {
     // TODO implement
-    return EMPTY;
+    return this.http.put<DemoDTO>(this.baseUrl + `/list/update/${id}`, dto)
   }
 
   delete(id: number): Observable<void> {
