@@ -1,0 +1,19 @@
+<mat-dialog-content>
+    <form [formGroup]="demoForm" style="display: flex; flex-direction: column; min-width: 500px;">
+        <mat-form-field>
+            <mat-label for="id">ID: </mat-label>
+            <input matInput id="id" type="number" formControlName="id">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="value">Value: </mat-label>
+            <input matInput id="value" type="text" formControlName="value">
+        </mat-form-field>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="demoForm.getRawValue()" [disabled]="demoForm.invalid">
+        {{ data?.id ? 'Update' : 'Create '}}
+    </button>
+</mat-dialog-actions>

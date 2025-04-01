@@ -1,0 +1,29 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
+{
+	"name": "Java",
+	"image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye",
+	"features": {
+	// 	//"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"vscjava.vscode-gradle",
+				"vmware.vscode-spring-boot"
+			]
+		}
+	},
+	"runArgs": [
+		"--network=workshop-full-stack_default",
+		"--network-alias=backend-dev"
+	],
+	// provide build and grade cache as persistent volumes to improve fs performance on windows and cache data on rebuilds
+	"mounts": [
+	//   "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+    	"source=${localWorkspaceFolderBasename}-java-build,target=${containerWorkspaceFolder}/build,type=volume",
+    	"source=${localWorkspaceFolderBasename}-gradle-cache,target=/home/vscode/.gradle/caches,type=volume"
+	],
+	"postCreateCommand": "sudo chown -R vscode build /home/vscode/.gradle"
+}

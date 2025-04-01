@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://db:5432/mydb
+    username: user
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop

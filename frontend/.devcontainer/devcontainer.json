@@ -1,0 +1,22 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+{
+	"name": "Node.js",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Angular.ng-template"
+			]
+		}
+	},
+	"runArgs": [
+		"--network=workshop-full-stack_default"
+	],
+	// mount node modules as volume to improve fs performance on windows
+	"mounts": [
+    	"source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+    	"source=${localWorkspaceFolderBasename}-angular-cache,target=${containerWorkspaceFolder}/.angular,type=volume"
+	],
+	"postCreateCommand": "sudo chown -R node node_modules .angular"
+}

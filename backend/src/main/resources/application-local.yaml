@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/exampleUser
+    username: exampleUser
+    password: examplePw
+  jpa:
+    properties:
+      hibernate:
+        default_schema: dev
+        hbm2ddl:  
+          create_namespaces: true
