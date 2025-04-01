@@ -35,12 +35,12 @@ This project was developed during a Docker workshop at Itestra, where we learned
 Prerequisites:
 - Install Docker and Docker Compose.
 - Start the containers:
-1. docker-compose up -d
-2. Access the frontend at http://localhost:4000.
-3. Backend API runs on http://localhost:4000/api.
+    1. docker-compose up -d
+    2. Access the frontend at http://localhost:4000.
+    3. Backend API runs on http://localhost:4000/api.
 
 - Stop the containers:
-1. docker-compose down
+    1. docker-compose down
 
 # Project Structure
 workshop-full-stack/  
