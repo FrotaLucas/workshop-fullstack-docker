@@ -33,6 +33,6 @@ export class DemoService {
 
   delete(id: number): Observable<void> {
     // TODO implement
-    return EMPTY;
+    return this.http.delete<void>(this.baseUrl + `/list/delete/${id}`);
   }
 }
