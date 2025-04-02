@@ -42,8 +42,22 @@ export class AppComponent {
   }
 
   updateElementDialog(dto: DemoDTO) {
+    if (dto.id === undefined) {
+      console.error('Error: Cannot update an element without an ID');
+      return;
+    }
+
     this.openDialog(dto).subscribe((updatedDto) => {
-      // TODO implement
+      this.service.update(dto.id!, updatedDto).subscribe({
+        next: (updatedResponse) => {
+          this.data = this.data.map((item) =>
+            item.id === updatedResponse.id ? updatedResponse : item
+          );
+        },
+        error: (error) => {
+          console.error('error while updating element', error);
+        },
+      });
     });
   }
 
