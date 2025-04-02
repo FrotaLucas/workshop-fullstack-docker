@@ -23,7 +23,14 @@ public class DemoController {
     public DemoController(final DemoService service) {
         this.service = service;
     }
-    
+
+    //rota para teste. Nao esta funcionando
+    @Valid
+    @GetMapping("/test")
+    public DemoDTO getTest() {
+        System.out.println("Endpoint /test accessed!"); 
+        return new DemoDTO(10L, "test");
+    }
 
     //http://localhost:8080/list/elements ta retornando sempre [] mesmo se o enpoint for comentado
     
