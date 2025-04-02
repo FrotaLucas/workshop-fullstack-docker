@@ -23,14 +23,20 @@ public class DemoController {
     public DemoController(final DemoService service) {
         this.service = service;
     }
+    
 
-    @Valid
-    @GetMapping("/list/elements")
-    public List<DemoDTO> getListElements() {
-        //return this.service.loadAll();
-        DemoDTO ob = new DemoDTO(10L, "tst");
-        return List.of(ob);
-    }
+    //http://localhost:8080/list/elements ta retornando sempre [] mesmo se o enpoint for comentado
+    
+    // @Valid
+    // @GetMapping("/list/elements")
+    // public List<DemoDTO> getListElements() {
+    //     //test
+    //     System.out.println("Endpoint /test accessed!"); 
+    //     DemoDTO ob = new DemoDTO(10L, "tst");
+    //     return List.of(ob);
+
+    //    return this.service.loadAll();
+    // }
 
     @Valid
     @PostMapping("/list/create")
