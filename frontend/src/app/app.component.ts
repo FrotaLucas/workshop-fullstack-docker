@@ -48,15 +48,18 @@ export class AppComponent {
     }
 
     this.openDialog(dto).subscribe((updatedDto) => {
-      this.service.update(dto.id!, updatedDto).subscribe({
-        next: (updatedResponse) => {
-          this.data = this.data.map((item) =>
-            item.id === updatedResponse.id ? updatedResponse : item
-          );
-        },
-        error: (error) => {
-          console.error('error while updating element', error);
-        },
+      // TODO implement
+      this.openDialog(dto).subscribe((updatedDto) => {
+        this.service.update(dto.id!, updatedDto).subscribe({
+          next: (updatedResponse) => {
+            this.data = this.data.map((item) =>
+              item.id === updatedResponse.id ? updatedResponse : item
+            );
+          },
+          error: (error) => {
+            console.error('error while updating element', error);
+          },
+        });
       });
     });
   }
