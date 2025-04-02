@@ -50,7 +50,7 @@ public class DemoController {
     public DemoDTO createListElement(
             @RequestBody @Validated final DemoDTO demoDTO) {
         // TODO implement
-        return null;
+        return this.service.create(demoDTO);
     }
 
     @Valid
@@ -59,13 +59,14 @@ public class DemoController {
             @PathVariable("id") @NotNull final Long id,
             @RequestBody @Validated final DemoDTO demoDTO) {
         // TODO implement
-        return null;
+        return this.service.update(id, demoDTO);
     }
 
     @DeleteMapping("/list/delete/{id}")
     public void deleteListElement(
             @PathVariable("id") @NotNull final Long id) {
         // TODO implement
+        this.service.delete(id);
     }
 
 }
