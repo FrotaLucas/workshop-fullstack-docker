@@ -20,22 +20,19 @@ public class DemoService {
 
     public DemoDTO create(final DemoDTO dto) {
         // TODO implement
-
-           if (dto == null) {
-            throw new IllegalArgumentException("DTO cannot be null");
-        }
-
         DemoEntity entity = new DemoEntity();
         entity.setValue(dto.getValue());
-
         DemoEntity savedEntity = repository.save(entity);
-
         return toDto(savedEntity);
     }
 
     public DemoDTO update(final Long id, final DemoDTO dto) {
         // TODO implement
-        return null;
+        DemoEntity entity = repository.findById(id)
+        .orElseThrow(() -> new IllegalArgumentException("Entity with ID " + id + " not found"));
+        entity.setValue(dto.getValue());
+        DemoEntity updatedEntity = repository.save(entity);
+        return toDto(updatedEntity);
     }
 
     public void delete(final Long id) {
