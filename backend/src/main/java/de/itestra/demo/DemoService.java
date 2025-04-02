@@ -37,6 +37,10 @@ public class DemoService {
 
     public void delete(final Long id) {
         // TODO implement
+        if (!repository.existsById(id)) {
+            throw new IllegalArgumentException("Entity with ID " + id + " does not exist");
+        }
+        repository.deleteById(id);
     }
 
     private DemoDTO toDto(final DemoEntity entity) {
