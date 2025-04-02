@@ -12,35 +12,35 @@ import { filter, Observable } from 'rxjs';
   standalone: true,
   imports: [MatTableModule, MatDialogModule, MatButtonModule, MatIconModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-
   displayedColumns: string[] = ['id', 'value', 'actions'];
   data: DemoDTO[] = [];
 
-  constructor(
-    private service: DemoService,
-    private dialog: MatDialog
-  ) {
-    service.loadAll().subscribe(values => this.data = values);
+  constructor(private service: DemoService, private dialog: MatDialog) {
+    service.loadAll().subscribe((values) => (this.data = values));
   }
 
   openDialog(input?: DemoDTO): Observable<DemoDTO> {
     const ref = this.dialog.open(DemoDialogComponent, { data: input });
-    return ref.afterClosed().pipe(
-      filter(x => !!x)
-    );
+    return ref.afterClosed().pipe(filter((x) => !!x));
   }
 
   createElementDialog() {
-    this.openDialog().subscribe(newDto => {
+    this.openDialog().subscribe((newDto) => {
       // TODO implement
+      this.service.create(newDto).subscribe({
+        next: (createdDto) => {
+          this.data = [...this.data, createdDto];
+        },
+        //error: (error) => { console.error("error while adding new element", error)}
+      });
     });
   }
 
   updateElementDialog(dto: DemoDTO) {
-    this.openDialog(dto).subscribe(updatedDto => {
+    this.openDialog(dto).subscribe((updatedDto) => {
       // TODO implement
     });
   }
