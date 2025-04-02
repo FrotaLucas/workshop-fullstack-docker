@@ -19,13 +19,13 @@ services:
 
   backend:
     image: img-back
-    #environment:
-    # SPRING_APPLICATION_NAME: demo
-    # SPRING_DATASOURCE_PLATFORM: postgres
-    # SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/mydb
-    # SPRING_DATASOURCE_USERNAME: user
-    # SPRING_DATASOURCE_PASSWORD: password
-    # SPRING_JPA_HIBERNATE_DDL-AUTO: create-drop
+    environment:
+      SPRING_APPLICATION_NAME: demo
+      SPRING_DATASOURCE_PLATFORM: postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/mydb
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_JPA_HIBERNATE_DDL-AUTO: create-drop
     depends_on:
       db:
         condition: service_healthy
