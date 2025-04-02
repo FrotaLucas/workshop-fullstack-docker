@@ -34,7 +34,9 @@ export class AppComponent {
         next: (createdDto) => {
           this.data = [...this.data, createdDto];
         },
-        //error: (error) => { console.error("error while adding new element", error)}
+        error: (error) => {
+          console.error('error while adding new element', error);
+        },
       });
     });
   }
