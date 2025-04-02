@@ -11,3 +11,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
+
+# Debug with hibernate and jdbc")
+logging:
+  level:
+    org.hibernate.SQL: DEBUG          # Mostra as queries SQL geradas
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE  # Mostra os parâmetros das queries
+    org.springframework.jdbc.datasource.init: DEBUG  # Logs de inicialização do banco
