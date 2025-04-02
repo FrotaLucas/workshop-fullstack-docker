@@ -27,7 +27,9 @@ public class DemoController {
     @Valid
     @GetMapping("/list/elements")
     public List<DemoDTO> getListElements() {
-        return this.service.loadAll();
+        //return this.service.loadAll();
+        DemoDTO ob = new DemoDTO(10L, "tst");
+        return List.of(ob);
     }
 
     @Valid

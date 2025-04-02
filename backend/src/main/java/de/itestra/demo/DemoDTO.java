@@ -8,6 +8,11 @@ public class DemoDTO {
     
     @NotNull
     private String value;
+    
+    public DemoDTO(Long id, String value) {
+        this.id = id;
+        this.value = value;
+    }
 
     public Long getId() {
         return id;
