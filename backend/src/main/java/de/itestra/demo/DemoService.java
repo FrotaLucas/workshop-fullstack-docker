@@ -20,7 +20,17 @@ public class DemoService {
 
     public DemoDTO create(final DemoDTO dto) {
         // TODO implement
-        return null;
+
+           if (dto == null) {
+            throw new IllegalArgumentException("DTO cannot be null");
+        }
+
+        DemoEntity entity = new DemoEntity();
+        entity.setValue(dto.getValue());
+
+        DemoEntity savedEntity = repository.save(entity);
+
+        return toDto(savedEntity);
     }
 
     public DemoDTO update(final Long id, final DemoDTO dto) {
