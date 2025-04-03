@@ -66,5 +66,17 @@ export class AppComponent {
 
   deleteElement(dto: DemoDTO) {
     // TODO implement
+    if (dto.id === undefined) {
+      console.error('Error: Cannot update an element without an ID');
+      return;
+    }
+    this.service.delete(dto.id).subscribe({
+      next: () => {
+        this.data = this.data.filter((item) => item.id !== dto.id);
+      },
+      error: (error) => {
+        console.error('error while deleting element', error);
+      },
+    });
   }
 }
