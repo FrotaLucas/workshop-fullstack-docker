@@ -1,5 +1,5 @@
 # Workshop: Dockerized Full-Stack Deployment
-A hands-on workshop at [Itestra](itestra.com)Itestra on containerizing and deploying applications with Docker
+A hands-on workshop at [Itestra](itestra.com) on containerizing and deploying applications with Docker
 
 ## Overview
 This project was developed during a Docker workshop at Itestra, where we learned to:
